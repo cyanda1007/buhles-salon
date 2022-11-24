@@ -10,8 +10,8 @@ Treatment type   | Price
 -------------  | ------
 `Pedicure`      |  R175 
 `Manicure` 	    |  R215
-`Make up ` 	     |  R185.00 
-`Brows & Lashes` | 	 R240.00
+`Make up ` 	     |  R185
+`Brows & Lashes` | 	 R240
 
 Create a Factory Function and a PostgreSQL database that will help her keep track of treatment bookings.
 

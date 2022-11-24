@@ -26,12 +26,12 @@ describe("The Booking Salon", function () {
 
   it("should be able to list treatments", async function () {
     const treatments = await booking.findAllTreatments();
-    assert.equal("Predicure", treatments);
+    assert.equal("Predicure - R175", treatments);
   });
 
   it("should be able to find a stylist", async function () {
     const stylist = await booking.findStylist("phoneNumber");
-    assert.equal("", stylist);
+    assert.equal("0634561234", stylist);
   });
 
   it("should be able to allow a client to make a booking", async function () {
@@ -59,9 +59,9 @@ describe("The Booking Salon", function () {
     await booking.booking(treatment2.id, client1.id, date, time);
     await booking.booking(treatment1.id, client2.id, date, time);
 
-    const bookings = await booking.findAllBookings(client);
+    const bookings = await bookings.findAllBookings(client.id);
 
-    assert.equal([], clientBooking);
+    assert.equal([manicure, 123, 12 - 03 - 2022, 12 - 35], clientBooking);
   });
 
   it("should be able to get bookings for a date", async function () {
@@ -77,7 +77,7 @@ describe("The Booking Salon", function () {
 
     const bookings = await booking.findAllBookings({ date, time });
 
-    assert.equal([], bookings);
+    assert.equal([01 / 02 / 2012, 12], bookings);
   });
 
   it("should be able to find the total income for a day", function () {

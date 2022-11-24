@@ -44,6 +44,14 @@ export default function salonBooking(db) {
     return allBookings;
   }
 
+  async function findClientBookings(client) {
+    const clientBook = await db.manyOrNone(
+      `select * from booking where client_id = $1`,
+      [client]
+    );
+    return clientBook;
+  }
+
   return {
     findAllTreatments,
     findStylist,
@@ -52,5 +60,6 @@ export default function salonBooking(db) {
     makeBooking,
     findTreatment,
     findAllBookings,
+    findClientBookings,
   };
 }
